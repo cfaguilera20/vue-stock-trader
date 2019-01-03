@@ -46,7 +46,7 @@
             aria-labelledby="navbarDropdown"
           >
             <a class="dropdown-item" href="#" @click="saveData">Save Data</a>
-            <a class="dropdown-item" href="#">Load Data</a>
+            <a class="dropdown-item" href="#" @click="loadData">Load Data</a>
           </div>
         </li>
         <li class="nav-item">
@@ -83,7 +83,8 @@ export default {
       };
 
       this.$http.put("data.json", data);
-    }
+    },
+    loadData() {}
   }
 };
 </script>
