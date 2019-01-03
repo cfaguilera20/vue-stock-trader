@@ -8,6 +8,9 @@ import { routes } from './routes';
 import store from './store/store';
 
 Vue.use(ViewRouter);
+Vue.filter('currency', (value) => {
+    return '$' + value.toLocaleString()
+})
 
 const router = new ViewRouter({
     mode: 'history',
