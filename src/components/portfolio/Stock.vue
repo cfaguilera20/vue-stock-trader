@@ -1,3 +1,9 @@
+<style scoped>
+.danger {
+  border: 1px solid red;
+}
+</style>
+
 <template>
   <div class="col-sm-6 col-md-4">
     <div class="card border-success mb-4">
@@ -12,14 +18,15 @@
             class="form-control"
             placeholder="Quantity"
             v-model.number="quantity"
+            :class="{danger: insufficientQuantity}"
           >
         </div>
         <div class="float-right">
           <button
             class="btn btn-success"
             @click="sellStock"
-            :disabled="quantity <= 0 || !Number.isInteger(quantity)"
-          >Sell</button>
+            :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
+          >{{insufficientQuantity? 'Insufficient' : 'Sell'}}</button>
         </div>
       </div>
     </div>
@@ -34,6 +41,11 @@ export default {
     return {
       quantity: 0
     };
+  },
+  computed: {
+    insufficientQuantity() {
+      return this.quantity > this.stock.quantity;
+    }
   },
   methods: {
     ...mapActions({ placeSellOrder: "sellStock" }),
