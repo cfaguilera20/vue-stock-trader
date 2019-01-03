@@ -6,7 +6,7 @@
 
 <template>
   <div class="col-sm-6 col-md-4">
-    <div class="card border-success mb-4">
+    <div class="card mb-4">
       <div class="card-header">
         {{stock.name}}
         <small>(Price: {{stock.price}} | Quantity: {{stock.quantity}})</small>
