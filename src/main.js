@@ -12,7 +12,7 @@ import store from './store/store';
 Vue.use(ViewRouter);
 Vue.use(VuewResource);
 
-Vue.http.options.root = 'https://vuejs-stock-trader-71838.firebaseio.com/';
+Vue.http.options.root = 'https://vuejs-stockt.firebaseio.com/';
 
 Vue.filter('currency', value => {
     return '$' + value.toLocaleString();
